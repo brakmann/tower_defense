@@ -51,9 +51,18 @@ becs.getEntities = function(_filters)
         return nil
     end
     return entities
-     
 end
 
+becs.getFirstEntity = function (_filters)
+    entities = becs.getEntities(_filters)
+    if entities then
+        return entities[1]
+    else
+        return nil
+    end
+end
+
+--private
 becs.filterAll = function(_entity, _filters)
     local isOkPair = true            
     --checking if all filters are components of entity
@@ -67,10 +76,12 @@ end
 
 --draw everything that has sprite and screenPosition components. 
 --Could be in CallSystems, this is hardcode for sprites to separate engine from system implementation
+--only for use in love.draw
 becs.renderSprites = function()
+    local scale = 1
     for keyEntity, valueEntity in pairs(becs.entitiesWorld) do
         if valueEntity.sprite and valueEntity.screenPosition then
-            love.graphics.draw(valueEntity.sprite, valueEntity.screenPosition.x, valueEntity.screenPosition.y)
+            love.graphics.draw(valueEntity.sprite, valueEntity.screenPosition.x, valueEntity.screenPosition.y, 0, scale, scale)
         end
     end
 end
@@ -78,6 +89,7 @@ end
 --find entities that has coolider that located at x, y and add clickedTag component
 --there should be a system that implements OnClick with filter = clickedTag
 --Could be in CallSystems, this is hardcode for clicks to separate engine from system implementation
+--only for use in love.mousepressed
 becs.addClickedTags = function(_x, _y)
     for keyEntity, valueEntity in pairs(becs.entitiesWorld) do
         if  valueEntity.screenPosition and valueEntity.collider and
@@ -91,6 +103,7 @@ becs.addClickedTags = function(_x, _y)
 end
 
 --remove all clicked tags. Call after AddClickedTags
+--only for use in love.mousepressed
 becs.removeClickedTags = function()
     for keyEntity, valueEntity in pairs(becs.entitiesWorld) do
         if valueEntity.clickedTag then
