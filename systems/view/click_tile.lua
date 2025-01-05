@@ -8,6 +8,7 @@ system.OnClick = function(_tile)
     if selectedCard then
         _tile.isFree = false
         local building = tools.deepcopy(require(selectedCard.buildingPrefab))
+        building.screenPosition = _tile.screenPosition
         becs.addEntityToWorld(building)
         selectedCard.toDestroyTag = true
     else 
