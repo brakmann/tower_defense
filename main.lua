@@ -46,6 +46,8 @@ function love.draw()
     local storage = becs.getFirstEntity({"resourceStorageTag"})
     if storage then 
         love.graphics.print(storage.magicAmount, 20, 500)
+        love.graphics.print(storage.techAmount, 20, 520)
+        love.graphics.print(storage.alchAmount, 20, 540)
     end   
 end
 
