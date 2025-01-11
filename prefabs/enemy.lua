@@ -7,5 +7,4 @@ entity.screenPosition = {x = 150, y = 150}
 entity.targetPosition = {x = 1000, y = 1000}
 entity.speed = 0.1
 
-
 return entity

@@ -52,7 +52,6 @@ function love.draw()
 end
 
 function generateLevel()
-    print("generated")
     local tile = tools.deepcopy(require('prefabs.tile'))
     tile.tilePosition.x = 1
     tile.tilePosition.y = 1
