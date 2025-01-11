@@ -46,7 +46,6 @@ becs.getEntities = function(_filters)
             table.insert(entities, valueEntity)
         end
     end 
-
     if next(entities) == nil then
         return nil
     end
@@ -59,6 +58,15 @@ becs.getFirstEntity = function (_filters)
         return entities[1]
     else
         return nil
+    end
+end
+
+becs.getEntityById = function (_id)
+    for i = 1, #becs.entitiesWorld do
+        if becs.entitiesWorld[i].id == _id then
+            print ("id done")
+            return becs.entitiesWorld[i]
+        end
     end
 end
 

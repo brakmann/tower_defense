@@ -10,14 +10,17 @@ function love.load()
     becs.addEntityToWorld(require('prefabs.take_card_button'))
     becs.addEntityToWorld(require('prefabs.resource_storage'))
 
+    becs.addSystemToWorld(require 'systems.damage.damage')
+    becs.addSystemToWorld(require 'systems.damage.death')
+    becs.addSystemToWorld(require 'systems.movement.target_definer')
+    becs.addSystemToWorld(require 'systems.movement.movement')
+    becs.addSystemToWorld(require 'systems.resources.resource_collector')
     becs.addSystemToWorld(require 'systems.view.apply_position')
     becs.addSystemToWorld(require 'systems.view.click_hand_card')
     becs.addSystemToWorld(require 'systems.view.click_take_card')
     becs.addSystemToWorld(require 'systems.view.click_tile')
     becs.addSystemToWorld(require 'systems.view.hand_renderer')
-    becs.addSystemToWorld(require 'systems.movement.target_definer')
-    becs.addSystemToWorld(require 'systems.movement.movement')
-    becs.addSystemToWorld(require 'systems.resources.resource_collector')
+
     love.graphics.setBackgroundColor(love.math.colorFromBytes(201, 233, 254))
 
     love.handlers['cardpressed'] = cardPressed

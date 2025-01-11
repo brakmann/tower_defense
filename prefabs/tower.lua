@@ -8,5 +8,6 @@ entity.cost = {magic = 3, tech = 0, alch = 0}
 entity.screenPosition = {x = 10, y = 10}
 entity.resourceCollectorFrequency = 5
 entity.resourceCollectorCooldown = 5
+entity.HP = 3
 
 return entity
