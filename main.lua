@@ -17,12 +17,15 @@ function love.load()
     becs.addEntityToWorld(require('prefabs.take_card_button'))
     becs.addEntityToWorld(require('prefabs.resource_storage'))
 
-    becs.addSystemToWorld(require 'systems.damage.damage')
     becs.addSystemToWorld(require 'systems.damage.death')
-    becs.addSystemToWorld(require 'systems.damage.tower_attack')
+    becs.addSystemToWorld(require 'systems.damage.enemy_melee_attack')
+    becs.addSystemToWorld(require 'systems.damage.tower_shot')
+
     becs.addSystemToWorld(require 'systems.movement.target_definer')
     becs.addSystemToWorld(require 'systems.movement.movement')
+
     becs.addSystemToWorld(require 'systems.resources.resource_collector')
+
     becs.addSystemToWorld(require 'systems.view.apply_position')
     becs.addSystemToWorld(require 'systems.view.click_hand_card')
     becs.addSystemToWorld(require 'systems.view.click_take_card')

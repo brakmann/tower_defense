@@ -9,8 +9,8 @@ entity.screenPosition = {x = 500, y = 500}
 entity.targetPosition = {x = 500, y = 500}
 entity.speed = 0.1
 entity.HP = 3
-entity.damageFrequency = 1
-entity.damageCooldown = 1
+entity.attackFrequency = 1
+entity.attackCooldown = 1
 entity.damage = 1
 
 return entity

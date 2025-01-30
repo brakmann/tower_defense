@@ -8,6 +8,7 @@ entity.cost = {magic = 3, tech = 0, alch = 0}
 entity.screenPosition = {x = 10, y = 10}
 entity.attackFrequency = 3
 entity.attackCooldown = 3
+entity.projectilePrefab = 'prefabs.projectile'
 entity.HP = 3
 
 return entity
