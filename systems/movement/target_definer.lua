@@ -19,6 +19,6 @@ system.OnUpdate = function(_entity)
         _entity.targetPosition.y = towers[minDistanceIndex].screenPosition.y
     end
 end 
-system.filters = {"targetPosition", "screenPosition"}
+system.filters = {"targetPosition", "screenPosition", "enemyTag"}
 
 return system

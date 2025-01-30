@@ -5,13 +5,21 @@ local tools = require 'engine.tools'
 
 function love.load()
     becs.initializeWorld()
+    generateLevel()
     local enemy = tools.deepcopy(require('prefabs.enemy'))
     becs.addEntityToWorld(enemy)
+    
+    local card1 = tools.deepcopy(require('prefabs.card_magic_collector'))
+    becs.addEntityToWorld(card1)
+    local card2 = tools.deepcopy(require('prefabs.card_magic_guard'))
+    becs.addEntityToWorld(card2)
+
     becs.addEntityToWorld(require('prefabs.take_card_button'))
     becs.addEntityToWorld(require('prefabs.resource_storage'))
 
     becs.addSystemToWorld(require 'systems.damage.damage')
     becs.addSystemToWorld(require 'systems.damage.death')
+    becs.addSystemToWorld(require 'systems.damage.tower_attack')
     becs.addSystemToWorld(require 'systems.movement.target_definer')
     becs.addSystemToWorld(require 'systems.movement.movement')
     becs.addSystemToWorld(require 'systems.resources.resource_collector')
@@ -24,7 +32,6 @@ function love.load()
     love.graphics.setBackgroundColor(love.math.colorFromBytes(201, 233, 254))
 
     love.handlers['cardpressed'] = cardPressed
-    generateLevel()
 end
 
 function cardPressed()

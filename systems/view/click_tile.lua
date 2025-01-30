@@ -4,7 +4,7 @@ local tools = require 'engine.tools'
 local system = {}
 
 system.OnClick = function(_tile)
-    local selectedCard = becs.getFirstEntity({"clickableHandCard", "isSelected"})
+    local selectedCard = becs.getFirstEntity({"inHandCard", "isSelected"})
     if selectedCard then
         local building = tools.deepcopy(require(selectedCard.buildingPrefab))
         local storage = becs.getFirstEntity({"resourceStorageTag"})

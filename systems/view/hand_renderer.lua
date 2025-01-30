@@ -1,8 +1,8 @@
 local system = {}
 
-system.OnUpdate = function(_entity)
-  _entity.screenPosition.x = _entity.cardPosition * 100 + 100
+system.OnUpdate = function(_card)
+  _card.screenPosition = {x = _card.cardPosition.x * 100 + 100, y = _card.cardPosition.y * 50 + 400}
 end 
-system.filters = {"cardPosition", "screenPosition"}
+system.filters = {"cardPosition", "inHandCard"}
 
 return system
